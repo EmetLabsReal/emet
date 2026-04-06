@@ -1,0 +1,19 @@
+{
+  "dimension": 3,
+  "retained": [0, 1],
+  "omitted": [2],
+  "entries": [
+    { "row": 0, "col": 0, "value": 1.0 },
+    { "row": 1, "col": 1, "value": 2.0 },
+    { "row": 2, "col": 2, "value": 2.0 },
+    { "row": 0, "col": 2, "value": 0.25 },
+    { "row": 2, "col": 0, "value": 0.25 }
+  ],
+  "exact_license": {
+    "schema_version": "v1",
+    "status": "licensed_quotient",
+    "invariant_kind": "dirichlet_form",
+    "provenance": "operator_estimates",
+    "conserved_quantities": ["energy"]
+  }
+}

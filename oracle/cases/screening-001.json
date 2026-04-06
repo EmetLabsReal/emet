@@ -1,0 +1,40 @@
+{
+  "description": "Screening failure: overlapping partition indices",
+  "expected": {
+    "branch": "screening",
+    "chi": null,
+    "gamma": null,
+    "lambda": null,
+    "reason_code": "invalid_partition",
+    "reduced_matrix": null,
+    "regime": "screening_failure",
+    "status": "invalid"
+  },
+  "id": "screening-001",
+  "input": {
+    "dimension": 2,
+    "entries": [
+      {
+        "col": 0,
+        "row": 0,
+        "value": 1.0
+      },
+      {
+        "col": 1,
+        "row": 1,
+        "value": 1.0
+      }
+    ],
+    "omitted": [
+      0
+    ],
+    "retained": [
+      0
+    ]
+  },
+  "tolerances": {
+    "enums": "exact",
+    "matrix_entries": 1e-10,
+    "scalars": 1e-12
+  }
+}

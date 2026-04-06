@@ -1,0 +1,40 @@
+{
+  "description": "Branch A: gamma <= epsilon_sing (quarter-turn, no diagonal on omitted block)",
+  "expected": {
+    "branch": "A",
+    "chi": null,
+    "gamma": 0.0,
+    "lambda": 1.0,
+    "reason_code": "insufficient_omitted_block_control",
+    "reduced_matrix": null,
+    "regime": "pre_admissible",
+    "status": "invalid"
+  },
+  "id": "branch-a-001",
+  "input": {
+    "dimension": 2,
+    "entries": [
+      {
+        "col": 1,
+        "row": 0,
+        "value": -1.0
+      },
+      {
+        "col": 0,
+        "row": 1,
+        "value": 1.0
+      }
+    ],
+    "omitted": [
+      1
+    ],
+    "retained": [
+      0
+    ]
+  },
+  "tolerances": {
+    "enums": "exact",
+    "matrix_entries": 1e-10,
+    "scalars": 1e-12
+  }
+}

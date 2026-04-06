@@ -1,0 +1,9 @@
+{
+  "dimension": 2,
+  "retained": [0],
+  "omitted": [1],
+  "entries": [
+    { "row": 0, "col": 1, "value": -1.0 },
+    { "row": 1, "col": 0, "value": 1.0 }
+  ]
+}
