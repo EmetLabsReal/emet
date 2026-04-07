@@ -1,0 +1,26 @@
+{
+  "contract": "cert-contract-1",
+  "generated_by": "oracle/generate.py",
+  "cases": [
+    {
+      "id": "branch-a-001",
+      "file": "cases/branch-a-001.json",
+      "sha256": "b1ded0a522be61b25a573e97199c81dfa3708564574335bb476f6f878f89b7e7"
+    },
+    {
+      "id": "branch-c-sub-001",
+      "file": "cases/branch-c-sub-001.json",
+      "sha256": "69f8961404e97ffbe8e44bfaa8987a320b7fbbac3f8cdf28001f608627b042ae"
+    },
+    {
+      "id": "branch-c-sup-001",
+      "file": "cases/branch-c-sup-001.json",
+      "sha256": "359d4988e4d854e039d7090722136bbbacfeafed41fc692cda33a10a047ee1e6"
+    },
+    {
+      "id": "screening-001",
+      "file": "cases/screening-001.json",
+      "sha256": "0633e2a0a367476bd16e30bc97982555f51e5e578a72792e9ca9123dda5c33cd"
+    }
+  ]
+}

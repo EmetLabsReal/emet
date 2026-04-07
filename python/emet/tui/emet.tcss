@@ -1,0 +1,207 @@
+Screen {
+    background: #0f0f0f;
+    color: #cccccc;
+}
+
+#title-bar {
+    dock: top;
+    height: 1;
+    background: #0f0f0f;
+    color: #444444;
+    padding: 0 2;
+}
+
+#status-bar {
+    dock: bottom;
+    height: 1;
+    background: #0f0f0f;
+    color: #333333;
+    padding: 0 2;
+}
+
+/* === Home screen three-column layout === */
+
+#main-layout {
+    height: 1fr;
+    padding: 0;
+}
+
+#left-rail {
+    width: 26;
+    height: 1fr;
+    padding: 0;
+}
+
+#domain-header {
+    height: 1;
+    padding: 0 1;
+    color: #555555;
+}
+
+#domain-list {
+    height: 1fr;
+    border: none;
+    background: #0f0f0f;
+}
+
+DomainList > .option-list--option {
+    padding: 0 1;
+}
+
+DomainList > .option-list--option-highlighted {
+    background: #1a1a1a;
+    color: #ffffff;
+}
+
+#center-col {
+    width: 1fr;
+    min-width: 36;
+    height: 1fr;
+    padding: 1 2;
+    overflow-y: auto;
+}
+
+#right-col {
+    width: 2fr;
+    height: 1fr;
+    padding: 1 1;
+}
+
+#run-hint {
+    height: 1;
+    margin: 1 0 0 0;
+}
+
+/* Regime badge in home */
+#regime-badge {
+    height: 1;
+    margin: 1 0 0 0;
+}
+
+/* Metrics panel */
+#metrics-panel {
+    margin: 0;
+    padding: 0;
+    height: auto;
+}
+
+/* Kahan panel in home */
+#kahan-panel {
+    margin: 1 0 0 0;
+    padding: 0;
+    border: none;
+    height: auto;
+}
+
+/* Certificate view in home */
+#cert-view {
+    margin: 1 0 0 0;
+    padding: 0;
+    border: none;
+    height: auto;
+}
+
+/* Param panel */
+ParamPanel {
+    height: auto;
+    width: 1fr;
+    padding: 0;
+}
+
+ParamPanel .param-label {
+    height: 1;
+    margin-top: 1;
+    color: #666666;
+}
+
+ParamPanel .param-label:first-child {
+    margin-top: 0;
+}
+
+ParamPanel Input {
+    height: 1;
+    border: none;
+    background: #1a1a1a;
+    padding: 0 1;
+}
+
+ParamPanel Select {
+    height: 3;
+}
+
+/* Torus plot */
+TorusPlot {
+    height: 1fr;
+    width: 1fr;
+}
+
+/* === General form controls === */
+
+Static {
+    height: auto;
+}
+
+Input {
+    height: 1;
+    border: none;
+    background: #1a1a1a;
+    padding: 0 1;
+    margin: 0 0 1 0;
+}
+
+Input:focus {
+    background: #222222;
+    color: #ffffff;
+    border: none;
+}
+
+Input:blur {
+    border: none;
+}
+
+Input.-valid {
+    border: none;
+}
+
+/* === Sub-screens === */
+
+#sweep-grid {
+    padding: 1 2;
+}
+
+#certify-grid {
+    layout: grid;
+    grid-size: 2 1;
+    grid-columns: 1fr 1fr;
+    grid-gutter: 1;
+    height: 1fr;
+    padding: 1 2;
+}
+
+#inspect-grid {
+    layout: grid;
+    grid-size: 2 1;
+    grid-columns: 1fr 1fr;
+    grid-gutter: 1;
+    height: 1fr;
+    padding: 1 2;
+}
+
+DataTable > .datatable--header {
+    background: #1a1a1a;
+    color: #666666;
+    text-style: none;
+}
+
+DataTable > .datatable--cursor {
+    background: #222222;
+}
+
+ProgressBar Bar > .bar--bar {
+    color: #ffffff;
+}
+
+Scrollbar {
+    background: #0f0f0f;
+    color: #222222;
+}

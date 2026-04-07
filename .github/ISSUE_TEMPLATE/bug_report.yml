@@ -1,0 +1,35 @@
+name: Bug report
+description: Something is wrong in Rust, Python, Lean, or CI
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For **security** issues, follow **SECURITY.md** in the repository root (do not use this public form).
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Expected vs actual behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: How to reproduce
+      description: Commands, minimal matrix or fixture, versions (Rust, Python, OS).
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Rust engine / CLI
+        - Python bindings
+        - Lean certificates
+        - CI / build
+        - Documentation
+        - Other
+    validations:
+      required: true

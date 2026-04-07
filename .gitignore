@@ -1,0 +1,46 @@
+# Rust
+target/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+*.so
+*.abi3.so
+.pytest_cache/
+
+# Virtual environments
+venv/
+.venv/
+
+# Build
+build/
+
+# Lean
+.lake/
+
+# IDE
+.cursor/
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+
+docs/reference/*.pdf
+
+# LaTeX
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz

@@ -1,0 +1,90 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master, emet-production]
+  pull_request:
+    branches: [main, master, emet-production]
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  rust:
+    name: Rust engine
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+    steps:
+      - uses: actions/checkout@v5
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo build --release
+      - run: cargo test
+
+  python:
+    name: Python tests
+    runs-on: ubuntu-latest
+    needs: rust
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v5
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python -m venv .venv
+      - run: .venv/bin/pip install maturin numpy pytest mpmath
+      - run: .venv/bin/maturin develop --release
+      - run: PYTHONPATH=python .venv/bin/python -m pytest python/tests/ -v
+
+  examples:
+    name: Examples
+    runs-on: ubuntu-latest
+    needs: rust
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+    steps:
+      - uses: actions/checkout@v5
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: python -m venv .venv
+      - run: .venv/bin/pip install maturin numpy mpmath
+      - run: .venv/bin/maturin develop --release
+      - run: PYTHONPATH=python .venv/bin/python examples/condensation.py
+      - run: PYTHONPATH=python .venv/bin/python examples/rg_flow.py
+      - run: PYTHONPATH=python .venv/bin/python examples/return_bound.py
+      - run: PYTHONPATH=python .venv/bin/python examples/yang_mills_mass_gap.py
+      - run: PYTHONPATH=python .venv/bin/python examples/yang_mills_4d_construction.py
+      - run: PYTHONPATH=python .venv/bin/python examples/quantum_channel.py
+      - run: PYTHONPATH=python .venv/bin/python examples/mexican_hat_theorem.py
+      - run: PYTHONPATH=python .venv/bin/python examples/semantic_threshold.py
+      - run: PYTHONPATH=python .venv/bin/python examples/prediction.py
+      - run: PYTHONPATH=python .venv/bin/python examples/squeeze_argument.py
+
+  oracle:
+    name: Golden vectors
+    runs-on: ubuntu-latest
+    needs: rust
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+    steps:
+      - uses: actions/checkout@v5
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: python -m venv .venv
+      - run: .venv/bin/pip install maturin numpy mpmath
+      - run: .venv/bin/maturin develop --release
+      - run: PYTHONPATH=python .venv/bin/python oracle/check.py
